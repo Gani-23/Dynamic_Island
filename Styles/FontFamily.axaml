@@ -8,7 +8,7 @@
 
     <Style Selector="TextBlock.Normal">
         <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="11"/>
         <Setter Property="FontWeight" Value="Bold"></Setter>
     </Style>
 </Styles>

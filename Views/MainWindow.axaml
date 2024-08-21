@@ -10,8 +10,8 @@
         ExtendClientAreaTitleBarHeightHint="1"
         WindowStartupLocation="Manual"
         Title="DynamicIsland"
-        MaxHeight="40" MaxWidth="380"
-        MinHeight="40" MinWidth="380"
+        MaxHeight="35" MaxWidth="380"
+        MinHeight="35" MinWidth="380"
         x:DataType="viewModels:MainViewModel">
     <Window.DataContext>
         <local:MainViewModel/>
@@ -21,8 +21,10 @@
     </Window.Styles>
     
     <Grid ColumnDefinitions="*, *, *">
-        <Grid></Grid>
-        <Grid Grid.Column="1"></Grid>
+        <Image Margin="20,5,0,0" Source="../Assets/icon.png" Height="33" Width="33" VerticalAlignment="Center" HorizontalAlignment="Left" ></Image>
+
+        <Grid Grid.Column="1">
+        </Grid>
         <Grid Grid.Column="2" RowDefinitions="*,*" VerticalAlignment="Center">
             <TextBlock  Classes="Normal" VerticalAlignment="Bottom" TextAlignment="Center" Text="{Binding Time}"/>
             <TextBlock Grid.Row="1" Classes="Normal" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding Date}"/>

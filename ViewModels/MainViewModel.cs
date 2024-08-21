@@ -1,6 +1,8 @@
 ﻿using ReactiveUI;
 using System;
 using System.Reactive.Linq;
+using System.Reactive.Threading.Tasks;
+using System.Windows.Input;
 
 namespace DynamicIsland.ViewModels
 {
