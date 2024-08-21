@@ -8,21 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60bb6fb-6477-4bfd-8a67-15e9523f6b30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DynamicIsland.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DynamicIsland.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.manifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DynamicIsland.csproj.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eagle eye’s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Styles/FontFamily.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DynamicIsland.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicIsland.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724239174181</updated>
-      <workItem from="1724239177001" duration="5744000" />
+      <workItem from="1724239177001" duration="8337000" />
     </task>
     <servers />
   </component>

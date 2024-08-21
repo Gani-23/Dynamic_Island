@@ -5,6 +5,8 @@
       <map>
         <entry key="App.axaml" value="DynamicIsland.csproj" />
         <entry key="MainWindow.axaml" value="DynamicIsland.csproj" />
+        <entry key="Styles/FontFamily.axaml" value="DynamicIsland.csproj" />
+        <entry key="Styles/FontStyles.axaml" value="DynamicIsland.csproj" />
       </map>
     </option>
   </component>

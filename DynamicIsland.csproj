@@ -26,6 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Styles\" />
+      <None Remove="Eagle eye’s.png" />
     </ItemGroup>
 </Project>
