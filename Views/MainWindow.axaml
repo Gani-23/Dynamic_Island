@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:DynamicIsland.ViewModels"
+        xmlns:reactive="clr-namespace:ReactiveUI;assembly=ReactiveUI"
+        xmlns:viewModels="clr-namespace:DynamicIsland.ViewModels"
+        x:Class="DynamicIsland.Views.MainWindow"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="#393939"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaTitleBarHeightHint="1"
+        WindowStartupLocation="Manual"
+        Title="DynamicIsland"
+        MaxHeight="50" MaxWidth="350"
+        MinHeight="50" MinWidth="350"
+        x:DataType="viewModels:MainViewModel">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid ColumnDefinitions="*, * *" Margin="10">
+        <Grid></Grid>
+        <Grid Grid.Column="1" RowDefinitions="*,*">
+            <TextBlock  VerticalAlignment="Bottom" TextAlignment="Center" Text="{Binding Time}"/>
+            <TextBlock Grid.Row="1" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding Date}"/>
+        </Grid>
+        <Grid Grid.Column="2"></Grid>
+    </Grid>
+</Window>
