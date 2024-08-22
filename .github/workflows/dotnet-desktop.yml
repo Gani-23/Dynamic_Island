@@ -1,0 +1,62 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - master  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.x'
+
+    - name: Restore dependencies
+      run: dotnet restore DynamicIsland/DynamicIsland.csproj
+
+    - name: Build
+      run: dotnet build DynamicIsland/DynamicIsland.csproj --configuration Release
+
+    - name: Publish
+      run: dotnet publish DynamicIsland/DynamicIsland.csproj --configuration Release --output ./output
+
+    - name: Create zip file
+      run: zip -r DynamicIsland.zip ./output
+
+    - name: Create Release Tag
+      id: create_tag
+      run: |
+        # Create a tag based on the current date and time
+        VERSION=$(date +'%Y%m%d%H%M%S')
+        git tag "v${VERSION}"
+        git push origin "v${VERSION}"
+        echo "RELEASE_TAG=v${VERSION}" >> $GITHUB_ENV
+
+    - name: Upload release asset
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { data: release } = await github.rest.repos.createRelease({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            tag_name: process.env.RELEASE_TAG,
+            name: `Release ${process.env.RELEASE_TAG}`,
+            draft: false,
+            prerelease: false,
+          });
+
+          await github.rest.repos.uploadReleaseAsset({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            release_id: release.id,
+            name: 'DynamicIsland.zip',
+            data: require('fs').createReadStream('./DynamicIsland.zip'),
+          });
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
