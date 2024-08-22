@@ -5,13 +5,21 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
 using System.Windows.Input;
+using System.Timers;
 
 namespace DynamicIsland.ViewModels
 {
     public class MainViewModel : ReactiveObject
     {
-        private string _time;
-        private string _date;
+        private string _time = null!;
+        private string _date = null!;
+        private string _stopwatchTimeInput = "00:00:00";
+        private bool _isStartButtonVisible = true;
+        private bool _isPauseButtonVisible = false;
+        private bool _isStopButtonVisible = false;
+        private Timer _stopwatchTimer;
+        private TimeSpan _stopwatchElapsed;
+
         private readonly IDisposable _timerSubscription;
 
         public string Time
@@ -26,16 +34,45 @@ namespace DynamicIsland.ViewModels
             set => this.RaiseAndSetIfChanged(ref _date, value);
         }
 
-        // Command to open settings
+        public string StopwatchTimeInput
+        {
+            get => _stopwatchTimeInput;
+            set => this.RaiseAndSetIfChanged(ref _stopwatchTimeInput, value);
+        }
+
+        public bool IsStartButtonVisible
+        {
+            get => _isStartButtonVisible;
+            set => this.RaiseAndSetIfChanged(ref _isStartButtonVisible, value);
+        }
+
+        public bool IsPauseButtonVisible
+        {
+            get => _isPauseButtonVisible;
+            set => this.RaiseAndSetIfChanged(ref _isPauseButtonVisible, value);
+        }
+
+        public bool IsStopButtonVisible
+        {
+            get => _isStopButtonVisible;
+            set => this.RaiseAndSetIfChanged(ref _isStopButtonVisible, value);
+        }
+
+        // Commands
+        public ReactiveCommand<Unit, Unit> StartStopwatchCommand { get; }
+        public ReactiveCommand<Unit, Unit> PauseStopwatchCommand { get; }
+        public ReactiveCommand<Unit, Unit> StopStopwatchCommand { get; }
         public ReactiveCommand<Unit, Unit> OpenSettingsCommand { get; }
         public ReactiveCommand<Unit, Unit> AccountSettingsCommand { get; }
 
         public MainViewModel()
         {
-            // Initialize the command
+            // Initialize commands
             OpenSettingsCommand = ReactiveCommand.Create(OpenSettings);
             AccountSettingsCommand = ReactiveCommand.Create(AccountSettings);
-            // Handle command errors
+            StartStopwatchCommand = ReactiveCommand.Create(StartStopwatch);
+            PauseStopwatchCommand = ReactiveCommand.Create(PauseStopwatch);
+            StopStopwatchCommand = ReactiveCommand.Create(StopStopwatch);
 
             AccountSettingsCommand.ThrownExceptions
                 .Subscribe(ex => Console.WriteLine($"Command error: {ex.Message}"));
@@ -43,12 +80,17 @@ namespace DynamicIsland.ViewModels
             OpenSettingsCommand.ThrownExceptions
                 .Subscribe(ex => Console.WriteLine($"Command error: {ex.Message}"));
 
-            // Set up a timer to update the time and date every second
+            // Timer to update time and date
             var timer = Observable.Interval(TimeSpan.FromSeconds(1))
                 .ObserveOn(RxApp.MainThreadScheduler);
 
             _timerSubscription = timer.Subscribe(_ => UpdateTimeAndDate());
             UpdateTimeAndDate(); // Initialize immediately
+
+            // Initialize stopwatch
+            _stopwatchElapsed = TimeSpan.Zero;
+            _stopwatchTimer = new Timer(1000);
+            _stopwatchTimer.Elapsed += OnStopwatchTick;
         }
 
         private void UpdateTimeAndDate()
@@ -58,14 +100,47 @@ namespace DynamicIsland.ViewModels
             Date = now.ToString("MMMM d, yyyy");
         }
 
-       
+        private void StartStopwatch()
+        {
+            if (TimeSpan.TryParse(StopwatchTimeInput, out var time))
+            {
+                _stopwatchElapsed = time;
+                _stopwatchTimer.Start();
+                IsStartButtonVisible = false;
+                IsPauseButtonVisible = true;
+                IsStopButtonVisible = true;
+            }
+        }
+
+        private void PauseStopwatch()
+        {
+            _stopwatchTimer.Stop();
+            IsStartButtonVisible = true;
+            IsPauseButtonVisible = false;
+        }
+
+        private void StopStopwatch()
+        {
+            _stopwatchTimer.Stop();
+            _stopwatchElapsed = TimeSpan.Zero;
+            StopwatchTimeInput = "00:00:00";
+            IsStartButtonVisible = true;
+            IsPauseButtonVisible = false;
+            IsStopButtonVisible = false;
+        }
+
+        private void OnStopwatchTick(object sender, ElapsedEventArgs e)
+        {
+            _stopwatchElapsed = _stopwatchElapsed.Add(TimeSpan.FromSeconds(1));
+            StopwatchTimeInput = _stopwatchElapsed.ToString(@"hh\:mm\:ss");
+        }
+
         private void OpenSettings()
         {
             try
             {
                 if (OperatingSystem.IsWindows())
                 {
-                    // Open Windows Settings
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "ms-settings:",
@@ -74,7 +149,6 @@ namespace DynamicIsland.ViewModels
                 }
                 else if (OperatingSystem.IsMacOS())
                 {
-                    // Open macOS System Preferences
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "open",
@@ -84,23 +158,21 @@ namespace DynamicIsland.ViewModels
                 }
                 else
                 {
-                    // Handle other platforms or show an error
                     Console.WriteLine("Platform not supported for opening settings.");
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that occur while trying to open settings
                 Console.WriteLine($"Error opening settings: {ex.Message}");
             }
         }
+
         private void AccountSettings()
         {
             try
             {
                 if (OperatingSystem.IsWindows())
                 {
-                    // Example action for Windows
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "ms-settings:account",
@@ -109,7 +181,6 @@ namespace DynamicIsland.ViewModels
                 }
                 else if (OperatingSystem.IsMacOS())
                 {
-                    // Example action for macOS
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "open",
@@ -119,13 +190,11 @@ namespace DynamicIsland.ViewModels
                 }
                 else
                 {
-                    // Handle other platforms or show an error
                     Console.WriteLine("Platform not supported for account settings.");
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that occur while trying to open account settings
                 Console.WriteLine($"Error opening account settings: {ex.Message}");
             }
         }
@@ -133,6 +202,7 @@ namespace DynamicIsland.ViewModels
         ~MainViewModel()
         {
             _timerSubscription.Dispose();
+            _stopwatchTimer.Dispose();
         }
     }
 }

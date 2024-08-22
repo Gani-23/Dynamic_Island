@@ -1,44 +1,63 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:reactive="clr-namespace:ReactiveUI;assembly=ReactiveUI"
-        xmlns:global="clr-namespace:"
         xmlns:viewModels="clr-namespace:DynamicIsland.ViewModels"
         x:Class="DynamicIsland.Views.MainWindow"
         TransparencyLevelHint="AcrylicBlur"
-        Background="#393939"
+        Background="Transparent"
+        CornerRadius="200"
         ExtendClientAreaToDecorationsHint="True"
-        ExtendClientAreaTitleBarHeightHint="1"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="0"
         WindowStartupLocation="Manual"
         Title="DynamicIsland"
-        MaxHeight="35" MaxWidth="500"
-        MinHeight="35" MinWidth="500"
+        MaxHeight="40" MaxWidth="500"
+        MinHeight="40" MinWidth="500"
+        CanResize="False"
+        
+
         x:DataType="viewModels:MainViewModel">
+
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
     <Window.Styles>
-        <StyleInclude Source="../Styles/FontFamilyStyles.axaml"/>
         <StyleInclude Source="../Styles/ButtonStyles.axaml"/>
+        <StyleInclude Source="../Styles/FontFamilyStyles.axaml"/>
+        <StyleInclude Source="../Styles/TextBoxStyles.axaml"/>
     </Window.Styles>
-    
-    <Grid ColumnDefinitions="*, 2*, *">
-        <Grid Grid.Column="0" ColumnDefinitions="*,*">
-            <Button  Grid.Column="0" Classes="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center"   Command="{Binding AccountSettingsCommand}">
-                <Image Source="../Assets/User.png" Height="35" Width="35"/>
-            </Button>
+
+    <Border Background="#333333"  Padding="0">
+        <Grid ColumnDefinitions="*, 2*, *" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             
-            <Button  Grid.Column="1" Classes="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center"   Command="{Binding OpenSettingsCommand}">
-              <Image Source="../Assets/Settings.png" Height="35" Width="35"/>
-          </Button>
+            <!-- Left Section: User and Settings Buttons -->
+            <Grid Grid.Column="0" ColumnDefinitions="Auto,Auto" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button Grid.Column="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding AccountSettingsCommand}">
+                    <Image Source="../Assets/User.png" Height="30" Width="30"/>
+                </Button>
+                
+                <Button Grid.Column="1" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenSettingsCommand}">
+                    <Image Source="../Assets/Settings.png" Height="30" Width="30"/>
+                </Button>
+            </Grid>
+            
+            <!-- Center Section: Stopwatch and Time -->
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBox Text="{Binding StopwatchTimeInput}" Classes="LEDStopwatch" Width="130" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
+                        <Button Background="Transparent" Content="Start" Command="{Binding StartStopwatchCommand}" IsVisible="{Binding IsStartButtonVisible}" Margin="5"/>
+                        <Button Background="Transparent" Content="Pause" Command="{Binding PauseStopwatchCommand}" IsVisible="{Binding IsPauseButtonVisible}" Margin="5"/>
+                        <Button Background="Transparent" Content="Stop" Command="{Binding StopStopwatchCommand}" IsVisible="{Binding IsStopButtonVisible}" Margin="5"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            
+            <!-- Right Section: Date and Time -->
+            <Grid Grid.Column="2" RowDefinitions="*,*">
+                <TextBlock Text="{Binding Time}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Text="{Binding Date}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="12"/>
+            </Grid>
         </Grid>
-        <!-- <Image Margin="20,5,0,0" Source="../Assets/icon.png" Height="33" Width="33" VerticalAlignment="Center" HorizontalAlignment="Left" /> -->
-        <Grid Grid.Column="1" RowDefinitions="*,*" Background="#493d3d">
-          
-        </Grid>
-        <Grid Grid.Column="2" RowDefinitions="*,*" VerticalAlignment="Center">
-            <TextBlock  Classes="Normal" VerticalAlignment="Bottom" TextAlignment="Center" Text="{Binding Time}"/>
-            <TextBlock Grid.Row="1" Classes="Normal" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding Date}"/>
-        </Grid>
-        
-    </Grid>
+    </Border>
 </Window>

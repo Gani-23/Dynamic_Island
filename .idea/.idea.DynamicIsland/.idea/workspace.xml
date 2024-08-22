@@ -8,15 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60bb6fb-6477-4bfd-8a67-15e9523f6b30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Settings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/User.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Styles/FontFamilyStyles.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.avalonia-build-tasks/id" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Styles/TextBoxStyles.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DynamicIsland.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicIsland.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Styles/FontFamily.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Styles/ButtonStyles.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
     </list>
@@ -31,6 +28,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2630d42371638ddfe48d1de625890ebc4c0fde875d119c7a251f77188b45/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -97,13 +98,14 @@
       <workItem from="1724239177001" duration="10430000" />
       <workItem from="1724250075993" duration="58000" />
       <workItem from="1724250161245" duration="187000" />
-      <workItem from="1724250362434" duration="11749000" />
+      <workItem from="1724250362434" duration="26193000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

@@ -7,8 +7,11 @@
         <entry key="MainWindow.axaml" value="DynamicIsland.csproj" />
         <entry key="Styles/ButtonStyles.axaml" value="DynamicIsland.csproj" />
         <entry key="Styles/FontFamily.axaml" value="DynamicIsland.csproj" />
+        <entry key="Styles/FontFamilyStyles.axaml" value="DynamicIsland.csproj" />
         <entry key="Styles/FontStyles.axaml" value="DynamicIsland.csproj" />
+        <entry key="Styles/TextBoxStyles.axaml" value="DynamicIsland.csproj" />
         <entry key="Views/MainWindow.axaml" value="DynamicIsland.csproj" />
+        <entry key="Views/Repl.axaml" value="DynamicIsland.csproj" />
       </map>
     </option>
   </component>
