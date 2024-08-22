@@ -30,12 +30,12 @@ jobs:
     - name: Create zip file
       run: zip -r DynamicIsland.zip ./output
 
-    - name: Create Release Tag
-      id: create_tag
+    - name: Generate Version Tag
+      id: generate_tag
       run: |
-        # Create a tag based on the current date and time
         VERSION=$(date +'%Y%m%d%H%M%S')
         echo "RELEASE_TAG=v${VERSION}" >> $GITHUB_ENV
+        echo "Generated tag: v${VERSION}"
       env:
         DOTNET_ROOT: /usr/share/dotnet
 
@@ -44,7 +44,7 @@ jobs:
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
         git tag "${{ env.RELEASE_TAG }}"
-        git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} "${{ env.RELEASE_TAG }}"
+        git push origin "${{ env.RELEASE_TAG }}"
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
@@ -69,11 +69,20 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const release_id = context.payload.release.id;
+          const release_id = context.runId;  // Get release ID from previous step
+          const { data: release } = await github.rest.repos.listReleases({
+            owner: context.repo.owner,
+            repo: context.repo.repo
+          });
+          const releaseDetails = release.find(r => r.tag_name === process.env.RELEASE_TAG);
+          if (!releaseDetails) {
+            throw new Error('Release not found');
+          }
+
           await github.rest.repos.uploadReleaseAsset({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            release_id: release_id,
+            release_id: releaseDetails.id,
             name: 'DynamicIsland.zip',
             data: require('fs').createReadStream('./DynamicIsland.zip'),
           });
