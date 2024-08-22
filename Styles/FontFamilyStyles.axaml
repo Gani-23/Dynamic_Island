@@ -1,0 +1,34 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="TextBlock.Normal">
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="FontWeight" Value="ExtraLight"></Setter>
+    </Style>
+    <Style Selector="TextBox.Timer" >
+        <!-- Base style settings -->
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="Transparent" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        
+    </Style>
+    <Style Selector="TextBox:IsKeyboardFocusWithin.Timer">
+        <Setter Property="Background" Value="#4D4D4D" /> <!-- Change this color to your preferred active color -->
+        <Setter Property="BorderBrush" Value="LightGray" /> <!-- Optional: Border color for focus -->
+        <Setter Property="BorderThickness" Value="1" /> <!-- Optional: Border thickness for focus -->
+    </Style>
+
+
+</Styles>

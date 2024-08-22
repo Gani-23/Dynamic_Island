@@ -19,18 +19,21 @@ namespace DynamicIsland.Views
 
             // Retrieve the primary screen's bounds
             var screen = Screens.Primary;
-            var screenBounds = screen.Bounds;
+            if (screen != null)
+            {
+                var screenBounds = screen.Bounds;
 
-            // Retrieve the dimensions of the window
-            var windowWidth = this.Bounds.Width;
-            var windowHeight = this.Bounds.Height;
+                // Retrieve the dimensions of the window
+                var windowWidth = this.Bounds.Width;
+                var windowHeight = this.Bounds.Height;
 
-            // Calculate the position for the top center
-            var x = (screenBounds.Width - windowWidth) / 2;
-            var y = 0; // Position the window at the top
+                // Calculate the position for the top center
+                var x = (screenBounds.Width - windowWidth) / 2;
+                var y = 0; // Position the window at the top
 
-            // Set the window's position
-            this.Position = new PixelPoint((int)x, (int)y);
+                // Set the window's position
+                this.Position = new PixelPoint((int)x, (int)y);
+            }
         }
     }
 }

@@ -8,11 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60bb6fb-6477-4bfd-8a67-15e9523f6b30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/User.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Styles/FontFamilyStyles.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DynamicIsland.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicIsland.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Styles/FontFamily.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Styles/FontFamily.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Styles/FontFamily.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Styles/ButtonStyles.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
     </list>
@@ -93,7 +97,7 @@
       <workItem from="1724239177001" duration="10430000" />
       <workItem from="1724250075993" duration="58000" />
       <workItem from="1724250161245" duration="187000" />
-      <workItem from="1724250362434" duration="2001000" />
+      <workItem from="1724250362434" duration="11749000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="using:DynamicIsland.ViewModels"
         xmlns:reactive="clr-namespace:ReactiveUI;assembly=ReactiveUI"
+        xmlns:global="clr-namespace:"
         xmlns:viewModels="clr-namespace:DynamicIsland.ViewModels"
         x:Class="DynamicIsland.Views.MainWindow"
         TransparencyLevelHint="AcrylicBlur"
@@ -10,20 +10,30 @@
         ExtendClientAreaTitleBarHeightHint="1"
         WindowStartupLocation="Manual"
         Title="DynamicIsland"
-        MaxHeight="35" MaxWidth="380"
-        MinHeight="35" MinWidth="380"
+        MaxHeight="35" MaxWidth="500"
+        MinHeight="35" MinWidth="500"
         x:DataType="viewModels:MainViewModel">
     <Window.DataContext>
-        <local:MainViewModel/>
+        <viewModels:MainViewModel/>
     </Window.DataContext>
     <Window.Styles>
-        <StyleInclude Source="../Styles/FontFamily.axaml"/>
+        <StyleInclude Source="../Styles/FontFamilyStyles.axaml"/>
+        <StyleInclude Source="../Styles/ButtonStyles.axaml"/>
     </Window.Styles>
     
-    <Grid ColumnDefinitions="*, *, *">
-        <Image Margin="20,5,0,0" Source="../Assets/icon.png" Height="33" Width="33" VerticalAlignment="Center" HorizontalAlignment="Left" ></Image>
-
-        <Grid Grid.Column="1">
+    <Grid ColumnDefinitions="*, 2*, *">
+        <Grid Grid.Column="0" ColumnDefinitions="*,*">
+            <Button  Grid.Column="0" Classes="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center"   Command="{Binding AccountSettingsCommand}">
+                <Image Source="../Assets/User.png" Height="35" Width="35"/>
+            </Button>
+            
+            <Button  Grid.Column="1" Classes="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center"   Command="{Binding OpenSettingsCommand}">
+              <Image Source="../Assets/Settings.png" Height="35" Width="35"/>
+          </Button>
+        </Grid>
+        <!-- <Image Margin="20,5,0,0" Source="../Assets/icon.png" Height="33" Width="33" VerticalAlignment="Center" HorizontalAlignment="Left" /> -->
+        <Grid Grid.Column="1" RowDefinitions="*,*" Background="#493d3d">
+          
         </Grid>
         <Grid Grid.Column="2" RowDefinitions="*,*" VerticalAlignment="Center">
             <TextBlock  Classes="Normal" VerticalAlignment="Bottom" TextAlignment="Center" Text="{Binding Time}"/>
