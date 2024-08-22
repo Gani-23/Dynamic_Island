@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Ensure all history is fetched to create tags
 
     - name: Setup .NET 8
       uses: actions/setup-dotnet@v3
@@ -36,13 +38,14 @@ jobs:
         VERSION=$(date +'%Y%m%d%H%M%S')
         echo "RELEASE_TAG=v${VERSION}" >> $GITHUB_ENV
         echo "Generated tag: v${VERSION}"
-      env:
-        DOTNET_ROOT: /usr/share/dotnet
 
-    - name: Push Tag
+    - name: Configure Git
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
+
+    - name: Create and Push Tag
+      run: |
         git tag "${{ env.RELEASE_TAG }}"
         git push origin "${{ env.RELEASE_TAG }}"
       env:
@@ -69,12 +72,11 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const release_id = context.runId;  // Get release ID from previous step
-          const { data: release } = await github.rest.repos.listReleases({
+          const release = await github.rest.repos.listReleases({
             owner: context.repo.owner,
             repo: context.repo.repo
           });
-          const releaseDetails = release.find(r => r.tag_name === process.env.RELEASE_TAG);
+          const releaseDetails = release.data.find(r => r.tag_name === process.env.RELEASE_TAG);
           if (!releaseDetails) {
             throw new Error('Release not found');
           }
