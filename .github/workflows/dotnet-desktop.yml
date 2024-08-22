@@ -18,13 +18,13 @@ jobs:
         dotnet-version: '8.x'
 
     - name: Restore dependencies
-      run: dotnet restore DynamicIsland/DynamicIsland.csproj
+      run: dotnet restore DynamicIsland.csproj
 
     - name: Build
-      run: dotnet build DynamicIsland/DynamicIsland.csproj --configuration Release
+      run: dotnet build DynamicIsland.csproj --configuration Release
 
     - name: Publish
-      run: dotnet publish DynamicIsland/DynamicIsland.csproj --configuration Release --output ./output
+      run: dotnet publish DynamicIsland.csproj --configuration Release --output ./output
 
     - name: Create zip file
       run: zip -r DynamicIsland.zip ./output
