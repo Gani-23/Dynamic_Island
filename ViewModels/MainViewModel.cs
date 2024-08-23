@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
+using System.Runtime.InteropServices;
 using System.Windows.Input;
 using System.Timers;
 
@@ -65,9 +66,12 @@ namespace DynamicIsland.ViewModels
         public ReactiveCommand<Unit, Unit> OpenSettingsCommand { get; }
         public ReactiveCommand<Unit, Unit> AccountSettingsCommand { get; }
 
+        public ReactiveCommand<Unit, Unit> OpenVSCommand { get; }
+
         public MainViewModel()
         {
             // Initialize commands
+            OpenVSCommand = ReactiveCommand.Create(OpenVS);
             OpenSettingsCommand = ReactiveCommand.Create(OpenSettings);
             AccountSettingsCommand = ReactiveCommand.Create(AccountSettings);
             StartStopwatchCommand = ReactiveCommand.Create(StartStopwatch);
@@ -133,6 +137,36 @@ namespace DynamicIsland.ViewModels
         {
             _stopwatchElapsed = _stopwatchElapsed.Add(TimeSpan.FromSeconds(1));
             StopwatchTimeInput = _stopwatchElapsed.ToString(@"hh\:mm\:ss");
+        }
+
+        public void OpenVS()
+        {
+            try
+            {
+                if (OperatingSystem.IsWindows())
+                {
+                    // For Windows
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "code",
+                        UseShellExecute = true
+                    });
+                    
+                }
+                else if (OperatingSystem.IsMacOS())
+                {
+                    // For macOS
+                    Process.Start("/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code");
+                }
+                else
+                {
+                    Console.WriteLine("Unsupported operating system.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to open VS Code: {ex.Message}");
+            }
         }
 
         private void OpenSettings()

@@ -11,8 +11,8 @@
         ExtendClientAreaTitleBarHeightHint="0"
         WindowStartupLocation="Manual"
         Title="DynamicIsland"
-        MaxHeight="40" MaxWidth="500"
-        MinHeight="40" MinWidth="500"
+        MaxHeight="40" MaxWidth="550"
+        MinHeight="40" MinWidth="550"
         CanResize="False"
         
 
@@ -31,16 +31,19 @@
         <Grid ColumnDefinitions="*, 2*, *" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             
             <!-- Left Section: User and Settings Buttons -->
-            <Grid Grid.Column="0" ColumnDefinitions="Auto,Auto" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Grid Grid.Column="0" ColumnDefinitions="Auto,Auto, Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,10,0">
                 <Button Grid.Column="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding AccountSettingsCommand}">
-                    <Image Source="../Assets/User.png" Height="30" Width="30"/>
+                    <Image Source="../Assets/User.png" Height="35" Width="35"/>
                 </Button>
                 
                 <Button Grid.Column="1" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenSettingsCommand}">
-                    <Image Source="../Assets/Settings.png" Height="30" Width="30"/>
+                    <Image Source="../Assets/Settings.png" Height="35" Width="35"/>
+                </Button>
+                <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenVSCommand}">
+                    <Image Source="../Assets/codow.png" Height="40" Width="40"/>
                 </Button>
             </Grid>
-            
+             
             <!-- Center Section: Stopwatch and Time -->
             <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

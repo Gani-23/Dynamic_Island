@@ -7,6 +7,7 @@
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <ApplicationIcon>DynamicICO.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -45,6 +46,11 @@
       <None Remove="Assets\User.png" />
       <AvaloniaResource Include="Assets\User.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </AvaloniaResource>
+      <None Remove="Assets\codeo.png" />
+      <None Remove="Assets\codow.png" />
+      <AvaloniaResource Include="Assets\codow.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
     </ItemGroup>
 </Project>

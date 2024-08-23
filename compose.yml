@@ -7,5 +7,5 @@ services:
     working_dir: /app
     command: |
       sh -c "dotnet restore DynamicIsland.sln &&
-             dotnet publish DynamicIsland.sln -c Release -r win-x64 -o /app/binaries/windows &&
-             dotnet publish DynamicIsland.sln -c Release -r osx-x64 -o /app/binaries/macos"
+             dotnet publish DynamicIsland.sln -c Release -r win-x64 --self-contained -p:PublishTrimmed=true -p:PublishSingleFile=true -o /app/binaries/windows &&
+             dotnet publish DynamicIsland.sln -c Release -r osx-x64 --self-contained -p:PublishTrimmed=true -p:PublishSingleFile=true -o /app/binaries/macos"
