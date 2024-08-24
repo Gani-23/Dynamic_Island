@@ -11,8 +11,8 @@
         ExtendClientAreaTitleBarHeightHint="0"
         WindowStartupLocation="Manual"
         Title="DynamicIsland"
-        MaxHeight="30" MaxWidth="580"
-        MinHeight="30" MinWidth="580"
+        MaxHeight="25" MaxWidth="580"
+        MinHeight="25" MinWidth="580"
         CanResize="False"
         
 
@@ -55,8 +55,9 @@
                         <Button Classes="Transparent" Content="Start" Command="{Binding StartStopwatchCommand}" IsVisible="{Binding IsStartButtonVisible}" Margin="5"/>
                         <Button Classes="Transparent" Content="Pause" Command="{Binding PauseStopwatchCommand}" IsVisible="{Binding IsPauseButtonVisible}" Margin="5"/>
                         <Button Classes="Transparent" Content="Stop" Command="{Binding StopStopwatchCommand}" IsVisible="{Binding IsStopButtonVisible}" Margin="5"/>
-                    </StackPanel><Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding }">
-                        <Image Source="../Assets/Sound.png" Height="35" Width="35"/>
+                    </StackPanel>
+                    <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenTerminalCommand }">
+                        <Image Source="../Assets/Terminal.png" Height="35" Width="35"/>
                     </Button>
                 </StackPanel>
             </Grid>

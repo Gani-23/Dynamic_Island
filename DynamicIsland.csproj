@@ -11,6 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="4.0.0-alpha5" />
         <PackageReference Include="Avalonia" Version="11.2.0-beta1" />
         <PackageReference Include="Avalonia.Angle.Windows.Natives" Version="2.1.22087.20231008" />
         <PackageReference Include="Avalonia.BuildServices" Version="0.0.31" />
@@ -57,7 +58,8 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
       <None Remove="Assets\Sound.png" />
-      <AvaloniaResource Include="Assets\Sound.png">
+      <None Remove="Assets\Terminal.png" />
+      <AvaloniaResource Include="Assets\Terminal.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
     </ItemGroup>

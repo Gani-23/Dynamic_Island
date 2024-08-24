@@ -68,16 +68,19 @@ namespace DynamicIsland.ViewModels
         public ReactiveCommand<Unit, Unit> OpenDefaultMusicCommand { get; }
         public ReactiveCommand<Unit, Unit> OpenVsCommand { get; }
 
+        public ReactiveCommand<Unit, Unit> OpenTerminalCommand { get; }
+
         public MainViewModel()
         {
             // Initialize commands
-            OpenVsCommand = ReactiveCommand.Create(OpenVS);
+            OpenVsCommand = ReactiveCommand.Create(OpenVs);
             OpenSettingsCommand = ReactiveCommand.Create(OpenSettings);
             AccountSettingsCommand = ReactiveCommand.Create(AccountSettings);
             StartStopwatchCommand = ReactiveCommand.Create(StartStopwatch);
             PauseStopwatchCommand = ReactiveCommand.Create(PauseStopwatch);
             StopStopwatchCommand = ReactiveCommand.Create(StopStopwatch);
             OpenDefaultMusicCommand = ReactiveCommand.Create(OpenDefaultMusic);
+            OpenTerminalCommand = ReactiveCommand.Create(OpenTerminal);
 
             AccountSettingsCommand.ThrownExceptions
                 .Subscribe(ex => Console.WriteLine($"Command error: {ex.Message}"));
@@ -184,7 +187,39 @@ namespace DynamicIsland.ViewModels
             StopwatchTimeInput = _stopwatchElapsed.ToString(@"hh\:mm\:ss");
         }
 
-        public void OpenVS()
+        
+
+        private void OpenTerminal()
+        {
+            try
+            {
+                if (OperatingSystem.IsWindows())
+                {
+                    // Open Command Prompt on Windows
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        UseShellExecute = true
+                    });
+                }
+                else if (OperatingSystem.IsMacOS())
+                {
+                    // Open Terminal on macOS
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "open",
+                        Arguments = "-a Terminal",
+                        UseShellExecute = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to open terminal: " + ex.Message);
+            }
+        }
+
+        private void OpenVs()
         {
             try
             {

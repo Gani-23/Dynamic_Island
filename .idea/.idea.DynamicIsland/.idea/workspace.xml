@@ -8,14 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60bb6fb-6477-4bfd-8a67-15e9523f6b30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sound.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.avalonia-build-tasks/avalonia_build162a8389-e200-4ea5-af67-3d1392a230de" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.avalonia-build-tasks/avalonia_build4d8f0c12-e368-4fb2-bd1c-2a20ed048415" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Terminal.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sound.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DynamicIsland.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicIsland.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Styles/ButtonStyles.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Styles/ButtonStyles.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Styles/TextBoxStyles.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Styles/TextBoxStyles.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
     </list>
@@ -103,7 +99,7 @@
       <workItem from="1724250362434" duration="28335000" />
       <workItem from="1724341103688" duration="1470000" />
       <workItem from="1724342607416" duration="2288000" />
-      <workItem from="1724432169326" duration="6121000" />
+      <workItem from="1724432169326" duration="9221000" />
     </task>
     <servers />
   </component>
