@@ -65,18 +65,19 @@ namespace DynamicIsland.ViewModels
         public ReactiveCommand<Unit, Unit> StopStopwatchCommand { get; }
         public ReactiveCommand<Unit, Unit> OpenSettingsCommand { get; }
         public ReactiveCommand<Unit, Unit> AccountSettingsCommand { get; }
-
-        public ReactiveCommand<Unit, Unit> OpenVSCommand { get; }
+        public ReactiveCommand<Unit, Unit> OpenDefaultMusicCommand { get; }
+        public ReactiveCommand<Unit, Unit> OpenVsCommand { get; }
 
         public MainViewModel()
         {
             // Initialize commands
-            OpenVSCommand = ReactiveCommand.Create(OpenVS);
+            OpenVsCommand = ReactiveCommand.Create(OpenVS);
             OpenSettingsCommand = ReactiveCommand.Create(OpenSettings);
             AccountSettingsCommand = ReactiveCommand.Create(AccountSettings);
             StartStopwatchCommand = ReactiveCommand.Create(StartStopwatch);
             PauseStopwatchCommand = ReactiveCommand.Create(PauseStopwatch);
             StopStopwatchCommand = ReactiveCommand.Create(StopStopwatch);
+            OpenDefaultMusicCommand = ReactiveCommand.Create(OpenDefaultMusic);
 
             AccountSettingsCommand.ThrownExceptions
                 .Subscribe(ex => Console.WriteLine($"Command error: {ex.Message}"));
@@ -102,6 +103,50 @@ namespace DynamicIsland.ViewModels
             var now = DateTime.Now;
             Time = now.ToString("hh:mm:ss tt"); // 12-hour clock with AM/PM
             Date = now.ToString("MMMM d, yyyy");
+        }
+
+        private void OpenDefaultMusic()
+        {
+            try
+            {
+                if (OperatingSystem.IsWindows())
+                {
+                    // For Windows, you could use a URI scheme to open the default music player
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "mswindowsmusic:",
+                        UseShellExecute = true
+                    });
+                }
+                else if (OperatingSystem.IsMacOS())
+                {
+                    // For macOS, use the `open` command with a known music file or app
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "open",
+                        Arguments = "-a Music",
+                        UseShellExecute = true
+                    });
+                }
+                else if (OperatingSystem.IsLinux())
+                {
+                    // For Linux, use `xdg-open` to open the default music application
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "xdg-open",
+                        Arguments = "https://www.spotify.com", // example, usually would use a music file or app URI
+                        UseShellExecute = true
+                    });
+                }
+                else
+                {
+                    Console.WriteLine("Unsupported operating system.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to open the default music player: {ex.Message}");
+            }
         }
 
         private void StartStopwatch()

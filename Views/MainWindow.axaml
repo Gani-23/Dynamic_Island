@@ -11,8 +11,8 @@
         ExtendClientAreaTitleBarHeightHint="0"
         WindowStartupLocation="Manual"
         Title="DynamicIsland"
-        MaxHeight="40" MaxWidth="550"
-        MinHeight="40" MinWidth="550"
+        MaxHeight="30" MaxWidth="580"
+        MinHeight="30" MinWidth="580"
         CanResize="False"
         
 
@@ -31,35 +31,40 @@
         <Grid ColumnDefinitions="*, 2*, *" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             
             <!-- Left Section: User and Settings Buttons -->
-            <Grid Grid.Column="0" ColumnDefinitions="Auto,Auto, Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,10,0">
+            <Grid Grid.Column="0" ColumnDefinitions="Auto,Auto, Auto, Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,5,0">
                 <Button Grid.Column="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding AccountSettingsCommand}">
-                    <Image Source="../Assets/User.png" Height="35" Width="35"/>
+                    <Image Source="../Assets/User.png" Height="30" Width="30"/>
                 </Button>
                 
                 <Button Grid.Column="1" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenSettingsCommand}">
-                    <Image Source="../Assets/Settings.png" Height="35" Width="35"/>
+                    <Image Source="../Assets/Settings.png" Height="30" Width="30"/>
                 </Button>
-                <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenVSCommand}">
-                    <Image Source="../Assets/codow.png" Height="40" Width="40"/>
+                <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenVsCommand}">
+                    <Image Source="../Assets/codow.png" Height="32" Width="32"/>
+                </Button>
+                <Button Grid.Column="3" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OpenDefaultMusicCommand}">
+                    <Image Source="../Assets/Music.png" Height="33" Width="33"/>
                 </Button>
             </Grid>
              
             <!-- Center Section: Stopwatch and Time -->
-            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBox Text="{Binding StopwatchTimeInput}" Classes="LEDStopwatch" Width="130" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding StopwatchTimeInput}" Classes="LEDStopwatch" Width="130" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
-                        <Button Background="Transparent" Content="Start" Command="{Binding StartStopwatchCommand}" IsVisible="{Binding IsStartButtonVisible}" Margin="5"/>
-                        <Button Background="Transparent" Content="Pause" Command="{Binding PauseStopwatchCommand}" IsVisible="{Binding IsPauseButtonVisible}" Margin="5"/>
-                        <Button Background="Transparent" Content="Stop" Command="{Binding StopStopwatchCommand}" IsVisible="{Binding IsStopButtonVisible}" Margin="5"/>
-                    </StackPanel>
+                        <Button Classes="Transparent" Content="Start" Command="{Binding StartStopwatchCommand}" IsVisible="{Binding IsStartButtonVisible}" Margin="5"/>
+                        <Button Classes="Transparent" Content="Pause" Command="{Binding PauseStopwatchCommand}" IsVisible="{Binding IsPauseButtonVisible}" Margin="5"/>
+                        <Button Classes="Transparent" Content="Stop" Command="{Binding StopStopwatchCommand}" IsVisible="{Binding IsStopButtonVisible}" Margin="5"/>
+                    </StackPanel><Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding }">
+                        <Image Source="../Assets/Sound.png" Height="35" Width="35"/>
+                    </Button>
                 </StackPanel>
             </Grid>
             
             <!-- Right Section: Date and Time -->
-            <Grid Grid.Column="2" RowDefinitions="*,*">
-                <TextBlock Text="{Binding Time}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-                <TextBlock Grid.Row="1" Text="{Binding Date}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="12"/>
+            <Grid Grid.Column="2" RowDefinitions="*,*" >
+                <TextBlock Text="{Binding Time}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="13" />
+                <TextBlock Grid.Row="1" Text="{Binding Date}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="10"/>
             </Grid>
         </Grid>
     </Border>

@@ -9,7 +9,7 @@
     <!-- LED Stopwatch TextBox Style -->
     <Style Selector="TextBox.LEDStopwatch">
         <Setter Property="FontFamily" Value="Courier New, Consolas, monospace"/>
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Light"/>
         <Setter Property="Foreground" Value="#ce5a08"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -17,7 +17,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="LetterSpacing" Value="5"></Setter>
+        <Setter Property="LetterSpacing" Value="3"></Setter>
 
         <!-- Normal State -->
         <Setter Property="BorderBrush" Value="Transparent"/>

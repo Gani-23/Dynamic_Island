@@ -52,5 +52,13 @@
       <AvaloniaResource Include="Assets\codow.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
+      <None Remove="Assets\Music.png" />
+      <AvaloniaResource Include="Assets\Music.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AvaloniaResource>
+      <None Remove="Assets\Sound.png" />
+      <AvaloniaResource Include="Assets\Sound.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AvaloniaResource>
     </ItemGroup>
 </Project>
