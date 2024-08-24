@@ -8,12 +8,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60bb6fb-6477-4bfd-8a67-15e9523f6b30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Terminal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/Mac.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/macos/DynamicIsland" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/macos/DynamicIsland.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/macos/libAvaloniaNative.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/macos/libHarfBuzzSharp.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/macos/libSkiaSharp.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/windows/DynamicIsland.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/windows/DynamicIsland.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/windows/av_libglesv2.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/windows/libHarfBuzzSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/binaries/windows/libSkiaSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/macos/DynamicIsland" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/macos/DynamicIsland.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/macos/libAvaloniaNative.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/macos/libHarfBuzzSharp.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/macos/libSkiaSharp.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/windows.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/windows/DynamicIsland.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/windows/DynamicIsland.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/windows/av_libglesv2.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/windows/libHarfBuzzSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binaries/windows/libSkiaSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DynamicIsland/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sound.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DynamicIsland.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicIsland.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +47,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2630d42371638ddfe48d1de625890ebc4c0fde875d119c7a251f77188b45/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -99,7 +121,7 @@
       <workItem from="1724250362434" duration="28335000" />
       <workItem from="1724341103688" duration="1470000" />
       <workItem from="1724342607416" duration="2288000" />
-      <workItem from="1724432169326" duration="9221000" />
+      <workItem from="1724432169326" duration="10396000" />
     </task>
     <servers />
   </component>
